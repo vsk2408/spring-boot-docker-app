@@ -3,5 +3,5 @@
   tasks:
     - name: Copy the tar file into Windows server
       copy:
-        src: /var/lib/jenkins/workspace/Automation_Project_main/*.tar
+        src: /var/lib/jenkins/workspace/Automation_Project_main/sping-boot-app.tar
         dest: C:\Updated_tar_file
