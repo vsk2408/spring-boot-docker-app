@@ -20,8 +20,8 @@ pipeline {
        }
        stage('ansible_playbook'){
            steps{
-               sh ''' chmod +X ansible.yaml
-                     ansible-playbook -i /etc/ansible/inv ansible.yaml'''
+               sh ''' chmod +X ansible.yml
+                     ansible-playbook -i /etc/ansible/inv ansible.yml'''
            }
        }
     }
