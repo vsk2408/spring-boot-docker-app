@@ -27,5 +27,19 @@ pipeline {
                 }
             }
        }
+        stage('Deployment') {
+            steps {
+                sshagent(['K8s_Master']) {
+                    sh 'scp -o StrictHostKeyChecking=no deployment.yaml ubuntu@13.233.161.200:/home/ubuntu/'
+                    script {
+                        try{
+                            sh 'ssh ubuntu@13.233.161.200 kubectl apply -f .'
+                        } catch(error){
+                            sh 'ssh ubuntu@13.233.161.200 kubectl create -f .'
+                        }
+                    }
+                }
+            }
+        }
     }
 }    
