@@ -18,5 +18,14 @@ pipeline {
               //sh 'chown jenkins:jenkins spring-boot-app.tar'
           }
        }
+       stage('Pushing Image') {
+            steps {
+                script {
+                    sh '''aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 723185050974.dkr.ecr.ap-south-1.amazonaws.com
+                    docker tag spring-boot-app:latest 723185050974.dkr.ecr.ap-south-1.amazonaws.com/sping-pet-clinic-repo:latest
+                    docker push 723185050974.dkr.ecr.ap-south-1.amazonaws.com/sping-pet-clinic-repo:latest'''
+                }
+            }
+       }
     }
 }    
