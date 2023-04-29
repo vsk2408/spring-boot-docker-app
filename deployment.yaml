@@ -13,10 +13,11 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: private-reg
+  name: spring-boot-app
+  namespace: poc-project
 spec:
   containers:
-  - name: private-reg-container
+  - name: sping-boot-container
     image: 723185050974.dkr.ecr.ap-south-1.amazonaws.com/sping-pet-clinic-repo
   imagePullSecrets:
   - name: regcred
