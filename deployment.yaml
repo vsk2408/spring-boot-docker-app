@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: health-check-service
-  namespace: poc-project
+  namespace: poc-project-1
 spec:
   type: NodePort
   ports:
@@ -14,7 +14,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spring-boot-app-deployment
-  namespace: poc-project
+  namespace: poc-project-1
   labels:
     app: spring-boot-app
 spec:
