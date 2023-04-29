@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: health-check-service
-  namespace: poc-project
+  namespace: poc-project-1
 spec:
   type: NodePort
   ports:
@@ -10,14 +10,25 @@ spec:
   selector:
     app: spring-boot-app
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: spring-boot-app
-  namespace: poc-project
+  name: spring-boot-app-deployment
+  namespace: poc-project-1
+  labels:
+    app: spring-boot-app
 spec:
-  containers:
-  - name: sping-boot-container
-    image: 723185050974.dkr.ecr.ap-south-1.amazonaws.com/sping-pet-clinic-repo
-  imagePullSecrets:
-  - name: regcred
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-app
+  template:
+    metadata:
+      labels:
+        app: spring-boot-app
+    spec:
+      containers:
+        - name: spring-boot-container
+          image: 723185050974.dkr.ecr.ap-south-1.amazonaws.com/sping-pet-clinic-repo
+      imagePullSecrets:
+      - name: regcred
