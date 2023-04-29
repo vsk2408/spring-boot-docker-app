@@ -32,8 +32,3 @@ spec:
           image: 723185050974.dkr.ecr.ap-south-1.amazonaws.com/sping-pet-clinic-repo
       imagePullSecrets:
       - name: regcred
-	  
-	  
-	  
-	  
-	  
