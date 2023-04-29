@@ -18,9 +18,8 @@ metadata:
   labels:
     app: spring-boot-app
 spec:
-   spec:
-      containers:
-        - name: spring-boot-container
-          image: 723185050974.dkr.ecr.ap-south-1.amazonaws.com/sping-pet-clinic-repo
-      imagePullSecrets:
+   containers:
+     - name: spring-boot-container
+       image: 723185050974.dkr.ecr.ap-south-1.amazonaws.com/sping-pet-clinic-repo
+    imagePullSecrets:
       - name: regcred
