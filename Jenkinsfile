@@ -30,12 +30,12 @@ pipeline {
         stage('Deployment') {
             steps {
                 sshagent(['Kube_Master']) {
-                    sh 'scp -o StrictHostKeyChecking=no deployment.yaml ubuntu@13.232.193.0:/home/ubuntu/'
+                    sh 'scp -o StrictHostKeyChecking=no deployment.yaml ubuntu@172.31.3.42:/home/ubuntu/'
                     script {
                         try{
-                            sh 'ssh ubuntu@13.232.193.0 kubectl apply -f .'
+                            sh 'ssh ubuntu@172.31.3.42 kubectl apply -f .'
                         } catch(error){
-                            sh 'ssh ubuntu@13.232.193.0 kubectl create -f .'
+                            sh 'ssh ubuntu@172.31.3.42 kubectl create -f .'
                         }
                     }
                 }
