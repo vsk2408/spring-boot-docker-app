@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-app-container
-        image: 723185050974.dkr.ecr.ap-south-1.amazonaws.com/sping-pet-clinic-repo:latest
+        image: 723185050974.dkr.ecr.ap-south-1.amazonaws.com/sping-pet-clinic-repo
         imagePullPolicy: Always
         ports:
           - name: web
