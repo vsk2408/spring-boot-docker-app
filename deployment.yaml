@@ -25,12 +25,12 @@ spec:
       labels:
         app: spring-boot-app
     spec:
-		  containers:
-		  - name: spring-boot-container
-			  image: 723185050974.dkr.ecr.ap-south-1.amazonaws.com/sping-pet-clinic-repo
-			  imagePullPolicy: Always
-			  ports:
-		      - name: web
-            containerPort: 3000	
+      containers:
+      - name: spring-boot-container
+        image: 723185050974.dkr.ecr.ap-south-1.amazonaws.com/sping-pet-clinic-repo
+        imagePullPolicy: Always
+        ports:
+          - name: web
+            containerPort: 3000
       imagePullSecrets:
-        - name: regcred
+          - name: regcred
